@@ -1,0 +1,29 @@
+{
+    "name": "mshl",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "fmt": "gofmt . -s -w"
+    },
+    "husky": {
+        "hooks": {
+            "pre-push": "npm run fmt"
+        }
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/11grossmane/mshl.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/11grossmane/mshl/issues"
+    },
+    "homepage": "https://github.com/11grossmane/mshl#readme",
+    "dependencies": {
+        "husky": "^4.2.5"
+    }
+}
