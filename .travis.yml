@@ -1,7 +1,9 @@
 language: go
-
+sudo: false
+install: true
+dist: xenial
 go:
     - 1.13.x
     - 1.14.x
 
-script: make test
+script: go test -v ./test/funcs_test.go
