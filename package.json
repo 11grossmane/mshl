@@ -1,8 +1,8 @@
 {
     "name": "mshl",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "",
-    "main": "index.js",
+    "main": "funcs.go",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "fmt": "gofmt -w ."
@@ -18,7 +18,7 @@
     },
     "keywords": [],
     "author": "",
-    "license": "ISC",
+    "license": "MIT",
     "bugs": {
         "url": "https://github.com/11grossmane/mshl/issues"
     },

@@ -8,12 +8,12 @@ import (
 	"github.com/11grossmane/mshl"
 )
 
-type S struct {
-	Name string `json:"name,omitempty"`
-	Age  int    `json:"age,omitempty"`
-}
-
 func ExampleMarshal() {
+	type S struct {
+		Name string `json:"name,omitempty"`
+		Age  int    `json:"age,omitempty"`
+	}
+
 	marshaledJSON, err := mshl.Marshal(S{Name: "jo", Age: 12})
 	if err != nil {
 		log.Panic(err)
