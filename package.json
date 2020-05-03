@@ -1,6 +1,6 @@
 {
     "name": "mshl",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "",
     "main": "index.js",
     "scripts": {
@@ -9,7 +9,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-push": "npm run fmt && npm install"
+            "pre-push": "npm run fmt"
         }
     },
     "repository": {

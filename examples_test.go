@@ -2,6 +2,8 @@ package mshl
 
 import (
 	"bytes"
+	"fmt"
+	"log"
 
 	"github.com/11grossmane/mshl"
 )
@@ -12,7 +14,11 @@ type S struct {
 }
 
 func ExampleMarshal() {
-	marshaledJSON, err := mshl.Marshal(S{Name: "jo", age: 12})
+	marshaledJSON, err := mshl.Marshal(S{Name: "jo", Age: 12})
+	if err != nil {
+		log.Panic(err)
+	}
+	fmt.Println(marshaledJSON)
 }
 
 func ExampleUnmarshal() {
@@ -24,6 +30,10 @@ func ExampleUnmarshal() {
 	someBytes := []byte(`{"name":"jo","age":12}`)
 
 	myStruct, err := mshl.Unmarshal(someBytes, S{})
+	if err != nil {
+		log.Panic(err)
+	}
+	fmt.Println(myStruct)
 
 }
 
@@ -36,5 +46,9 @@ func ExampleDecode() {
 	someReader := bytes.NewReader([]byte(`{"name":"jo","age":12}`))
 
 	myStruct, err := mshl.Decode(someReader, S{})
+	if err != nil {
+		log.Panic(err)
+	}
+	fmt.Println(myStruct)
 
 }
