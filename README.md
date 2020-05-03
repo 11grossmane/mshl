@@ -1,6 +1,8 @@
 # Go Package For Quick JSON Unmarshaling
 - Go package to Marshal, Unmarshal, and Decode JSON with one line of code
 
+![build](https://travis-ci.com/11grossmane/mshl.svg?branch=master&raw=true)
+
 ## Install
 `go get -u github.com/11grossmane/mshl`
 
