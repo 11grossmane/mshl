@@ -20,8 +20,8 @@ func TestFuncs(t *testing.T) {
 		expected := S{}
 		err := json.Unmarshal(js, &expected)
 		So(err, ShouldBeNil)
-		actual, err := mshl.Unmarshal(js, S{})
-		So(err, ShouldBeNil)
+		actual, ok := mshl.Unmarshal(js, S{}).(S)
+		So(ok, ShouldBeTrue)
 		So(actual, ShouldResemble, expected)
 	})
 	Convey("Decoder works as expected", t, func() {
@@ -30,8 +30,8 @@ func TestFuncs(t *testing.T) {
 		err := json.NewDecoder(reader).Decode(&expected)
 		So(err, ShouldBeNil)
 		reader = bytes.NewReader([]byte(`{"name":"jo","age":12}`))
-		actual, err := mshl.Decode(reader, S{})
-		So(err, ShouldBeNil)
+		actual, ok := mshl.Decode(reader, S{}).(S)
+		So(ok, ShouldBeTrue)
 		So(actual, ShouldResemble, expected)
 	})
 

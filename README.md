@@ -1,7 +1,5 @@
-# Go Package For Quick JSON Unmarshaling
+# Go Package For Quick JSON Unmarshaling ![build](https://travis-ci.com/11grossmane/mshl.svg?branch=master&raw=true)
 - Go package to Marshal, Unmarshal, and Decode JSON with one line of code
-
-![build](https://travis-ci.com/11grossmane/mshl.svg?branch=master&raw=true)
 
 ## Install
 `go get -u github.com/11grossmane/mshl`
@@ -16,7 +14,7 @@ type S struct {
 	}
 
 someBytes := []byte(`{"name":"jo","age":12}`)
-myStruct, err := mshl.Unmarshal(someBytes, S{})
+myStruct,ok:= mshl.Unmarshal(someBytes, S{}).(S)
 ```
 
 ### Decode Reader
@@ -27,7 +25,7 @@ type S struct {
 }
 
 req := &http.Request{}
-myStruct, err := mshl.Decode(req.Body, S{})
+myStruct,ok:= mshl.Decode(req.Body, S{}).(S)
 ```
 
 ### Marshal

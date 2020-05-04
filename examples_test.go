@@ -29,9 +29,9 @@ func ExampleUnmarshal() {
 
 	someBytes := []byte(`{"name":"jo","age":12}`)
 
-	myStruct, err := mshl.Unmarshal(someBytes, S{})
-	if err != nil {
-		log.Panic(err)
+	myStruct, ok := mshl.Unmarshal(someBytes, S{}).(S)
+	if ok != true {
+		log.Panic("Could not assert type")
 	}
 	fmt.Println(myStruct)
 
@@ -45,9 +45,9 @@ func ExampleDecode() {
 
 	someReader := bytes.NewReader([]byte(`{"name":"jo","age":12}`))
 
-	myStruct, err := mshl.Decode(someReader, S{})
-	if err != nil {
-		log.Panic(err)
+	myStruct, ok := mshl.Decode(someReader, S{}).(S)
+	if ok != true {
+		log.Panic("Could not assert type")
 	}
 	fmt.Println(myStruct)
 
