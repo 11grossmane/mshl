@@ -16,12 +16,21 @@ type S struct {
 
 func TestFuncs(t *testing.T) {
 	Convey("Unmarshaler works as expected", t, func() {
+		// normal case
 		js := []byte(`{"name":"jo","age":12}`)
 		expected := S{}
 		err := json.Unmarshal(js, &expected)
 		So(err, ShouldBeNil)
 		actual, ok := mshl.Unmarshal(js, S{}).(S)
 		So(ok, ShouldBeTrue)
+		So(actual, ShouldResemble, expected)
+
+		//error case
+		js = []byte(`{"word":40,"age":[10]}`)
+		expected = S{}
+		So(err, ShouldBeNil)
+		actual, ok = mshl.Unmarshal(js, S{}).(S)
+		So(ok, ShouldBeFalse)
 		So(actual, ShouldResemble, expected)
 	})
 	Convey("Decoder works as expected", t, func() {
