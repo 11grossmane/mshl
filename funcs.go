@@ -27,12 +27,12 @@ func Unmarshal(js []byte, empty interface{}) interface{} {
 }
 
 // Marshal marshales struct into json, same as json.Marshal
-func Marshal(any interface{}) ([]byte, error) {
+func Marshal(any interface{}) ([]byte) {
 	js, err := json.Marshal(any)
 	if err != nil {
-		return nil, err
+		return []byte(err.Error())
 	}
-	return js, nil
+	return js
 }
 
 // Decode allows you to decode json with one line of code
