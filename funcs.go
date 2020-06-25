@@ -10,6 +10,13 @@ import (
 func Unmarshal(js []byte, empty interface{}) interface{} {
 	//grabbing type
 	thingType := reflect.TypeOf(empty)
+	if thingType.String()=="primitive.M"||thingType==reflect.TypeOf(map[string]interface{}{}){
+		newThing:=make(map[string]interface{})
+		err:=json.Unmarshal(js, &newThing);if err!=nil{
+			return err
+		}
+		return newThing
+	}
 
 	//creating new empty pointer from type
 	newThing := reflect.New(thingType).Interface()
@@ -27,7 +34,7 @@ func Unmarshal(js []byte, empty interface{}) interface{} {
 }
 
 // Marshal marshales struct into json, same as json.Marshal
-func Marshal(any interface{}) ([]byte) {
+func Marshal(any interface{}) []byte {
 	js, err := json.Marshal(any)
 	if err != nil {
 		return []byte(err.Error())

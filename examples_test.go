@@ -14,7 +14,7 @@ func ExampleMarshal() {
 		Age  int    `json:"age,omitempty"`
 	}
 
-	marshaledJSON:= mshl.Marshal(S{Name: "jo", Age: 12})
+	marshaledJSON := mshl.Marshal(S{Name: "jo", Age: 12})
 	fmt.Println(string(marshaledJSON))
 }
 
