@@ -10,9 +10,10 @@ import (
 func Unmarshal(js []byte, empty interface{}) interface{} {
 	//grabbing type
 	thingType := reflect.TypeOf(empty)
-	if thingType.String()=="primitive.M"||thingType==reflect.TypeOf(map[string]interface{}{}){
-		newThing:=make(map[string]interface{})
-		err:=json.Unmarshal(js, &newThing);if err!=nil{
+	if thingType.String() == "primitive.M" || thingType == reflect.TypeOf(map[string]interface{}{}) {
+		newThing := make(map[string]interface{})
+		err := json.Unmarshal(js, &newThing)
+		if err != nil {
 			return err
 		}
 		return newThing
