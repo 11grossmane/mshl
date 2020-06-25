@@ -36,8 +36,9 @@ type S struct {
   Age  int    `json:"age,omitempty"`
 }
 
-marshaledJSON, err := mshl.Marshal(S{Name: "jo", age: 12})
+marshaledJSON := mshl.Marshal(S{Name: "jo", age: 12})
 ```
+errors are returned as byte[](err.Error()) so you can use inline
 
 
 ## License
