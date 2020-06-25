@@ -14,11 +14,8 @@ func ExampleMarshal() {
 		Age  int    `json:"age,omitempty"`
 	}
 
-	marshaledJSON, err := mshl.Marshal(S{Name: "jo", Age: 12})
-	if err != nil {
-		log.Panic(err)
-	}
-	fmt.Println(marshaledJSON)
+	marshaledJSON:= mshl.Marshal(S{Name: "jo", Age: 12})
+	fmt.Println(string(marshaledJSON))
 }
 
 func ExampleUnmarshal() {

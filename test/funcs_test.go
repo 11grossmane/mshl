@@ -47,8 +47,8 @@ func TestFuncs(t *testing.T) {
 	Convey("Marshal works as expected", t, func() {
 		expected := []byte(`{"name":"jo","age":12}`)
 		inputStruct := S{Name: "jo", Age: 12}
-		actual, err := mshl.Marshal(inputStruct)
-		So(err, ShouldBeNil)
+		actual := mshl.Marshal(inputStruct)
+
 		So(string(actual), ShouldEqual, string(expected))
 	})
 }
